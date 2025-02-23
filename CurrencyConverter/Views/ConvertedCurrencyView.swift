@@ -9,14 +9,15 @@ import UIKit
 
 class ConvertedCurrencyView: UIViewController {
     
+    //Model for converter app data
     var converterLogic: ConverterLogic?
     
+    //Labels and ui elements
     @IBOutlet weak var amountLabel: UILabel!
     @IBOutlet weak var currency1Label: UILabel!
     @IBOutlet weak var currency2Label: UILabel!
     @IBOutlet weak var currency3Label: UILabel!
     @IBOutlet weak var currency4Label: UILabel!
-    
     @IBOutlet weak var currencyGroup1: UIStackView!
     @IBOutlet weak var currencyGroup2: UIStackView!
     @IBOutlet weak var currencyGroup3: UIStackView!
@@ -24,6 +25,8 @@ class ConvertedCurrencyView: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        //Sets amounts to the model's amounts supplied from viewcontroller
         
         amountLabel.text = "USD \(String(converterLogic!.getAmount()))"
         
