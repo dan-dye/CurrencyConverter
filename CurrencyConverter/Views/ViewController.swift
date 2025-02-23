@@ -14,12 +14,6 @@ class ViewController: UIViewController {
     
     var converterLogic = ConverterLogic()
     
-    var amount: String = ""
-    var currency1Amount: String = ""
-    var currency2Amount: String = ""
-    var currency3Amount: String = ""
-    var currency4Amount: String = ""
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -30,19 +24,6 @@ class ViewController: UIViewController {
         if(intCheck(textField.text!)) {
             errorLabel.isHidden = true
             converterLogic.convert(Int(textField.text!)!)
-            amount = String(converterLogic.getAmount())
-            if(converterLogic.getCurrencyIsOn(1)) {
-                currency1Amount = String(format: "%.2f", converterLogic.getCurrAmount1())
-            }
-            if(converterLogic.getCurrencyIsOn(2)) {
-                currency2Amount = String(format: "%.2f", converterLogic.getCurrAmount2())
-            }
-            if(converterLogic.getCurrencyIsOn(3)) {
-                currency3Amount = String(format: "%.2f", converterLogic.getCurrAmount3())
-            }
-            if(converterLogic.getCurrencyIsOn(4)) {
-                currency4Amount = String(format: "%.2f", converterLogic.getCurrAmount4())
-            }
             
             self.performSegue(withIdentifier: "toConvertedCurrency", sender: self)
             
@@ -54,11 +35,7 @@ class ViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "toConvertedCurrency" {
             let navigation = segue.destination as! ConvertedCurrencyView
-            navigation.amount = amount
-            navigation.currency1Amount = currency1Amount
-            navigation.currency2Amount = currency2Amount
-            navigation.currency3Amount = currency3Amount
-            navigation.currency4Amount = currency4Amount
+            navigation.converterLogic = converterLogic
         }
     }
     

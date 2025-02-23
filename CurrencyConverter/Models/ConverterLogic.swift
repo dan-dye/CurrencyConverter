@@ -72,6 +72,7 @@ struct ConverterLogic {
     func getAmount() -> Int {
         return amount
     }
+
     
     func getCurrencyIsOn(_ currency: Int) -> Bool {
         switch currency {
