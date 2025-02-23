@@ -33,12 +33,16 @@ struct ConverterLogic {
         switch switchNumber {
         case 1:
             currency1IsOn = isOn
+            break
         case 2:
             currency2IsOn = isOn
+            break
         case 3:
             currency3IsOn = isOn
+            break
         case 4:
             currency4IsOn = isOn
+            break
         default:
             print("invalid switch name passed to function ConverterLogic.flipSwitch")
         }
@@ -59,12 +63,29 @@ struct ConverterLogic {
         return currencyAmount2
     }
     func getCurrAmount3() -> Double {
-        return currencyAmount4
+        return currencyAmount3
     }
     func getCurrAmount4() -> Double {
         return currencyAmount4
     }
+    
     func getAmount() -> Int {
         return amount
     }
+    
+    func getCurrencyIsOn(_ currency: Int) -> Bool {
+        switch currency {
+        case 1:
+            return currency1IsOn
+        case 2:
+            return currency2IsOn
+        case 3:
+            return currency3IsOn
+        case 4:
+            return currency4IsOn
+        default:
+            return false
+        }
+    }
+    
 }
